@@ -16,6 +16,10 @@
 		F0CF5E1C1BD153C2000A2007 /* WhereYouAtUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CF5E1B1BD153C2000A2007 /* WhereYouAtUITests.swift */; };
 		F0CF5E2B1BD16B1F000A2007 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CF5E2A1BD16B1F000A2007 /* ViewController.swift */; settings = {ASSET_TAGS = (); }; };
 		F0CF5E2E1BD16CF1000A2007 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CF5E2D1BD16CF1000A2007 /* Utilities.swift */; settings = {ASSET_TAGS = (); }; };
+		F0CF5E321BD22B92000A2007 /* WhereYouAt.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CF5E311BD22B92000A2007 /* WhereYouAt.swift */; settings = {ASSET_TAGS = (); }; };
+		F0CF5E341BD242F1000A2007 /* LogInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CF5E331BD242F1000A2007 /* LogInController.swift */; settings = {ASSET_TAGS = (); }; };
+		F0CF5E381BD27937000A2007 /* FloatLabelTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CF5E361BD27937000A2007 /* FloatLabelTextField.swift */; settings = {ASSET_TAGS = (); }; };
+		F0CF5E391BD27937000A2007 /* FloatLabelTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0CF5E371BD27937000A2007 /* FloatLabelTextView.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,10 @@
 		F0CF5E1D1BD153C2000A2007 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0CF5E2A1BD16B1F000A2007 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F0CF5E2D1BD16CF1000A2007 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		F0CF5E311BD22B92000A2007 /* WhereYouAt.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WhereYouAt.swift; sourceTree = "<group>"; };
+		F0CF5E331BD242F1000A2007 /* LogInController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LogInController.swift; sourceTree = "<group>"; };
+		F0CF5E361BD27937000A2007 /* FloatLabelTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextField.swift; sourceTree = "<group>"; };
+		F0CF5E371BD27937000A2007 /* FloatLabelTextView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FloatLabelTextView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -123,6 +131,7 @@
 		F0CF5DFA1BD153C1000A2007 /* WhereYouAt */ = {
 			isa = PBXGroup;
 			children = (
+				F0CF5E351BD27937000A2007 /* FloatingLabel */,
 				F0CF5E291BD16B1F000A2007 /* Controllers */,
 				F0CF5E2C1BD16CDE000A2007 /* Utilities */,
 				F0CF5DFB1BD153C1000A2007 /* AppDelegate.swift */,
@@ -155,7 +164,9 @@
 		F0CF5E291BD16B1F000A2007 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F0CF5E311BD22B92000A2007 /* WhereYouAt.swift */,
 				F0CF5E2A1BD16B1F000A2007 /* ViewController.swift */,
+				F0CF5E331BD242F1000A2007 /* LogInController.swift */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -166,6 +177,15 @@
 				F0CF5E2D1BD16CF1000A2007 /* Utilities.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		F0CF5E351BD27937000A2007 /* FloatingLabel */ = {
+			isa = PBXGroup;
+			children = (
+				F0CF5E361BD27937000A2007 /* FloatLabelTextField.swift */,
+				F0CF5E371BD27937000A2007 /* FloatLabelTextView.swift */,
+			);
+			path = FloatingLabel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -349,7 +369,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F0CF5E321BD22B92000A2007 /* WhereYouAt.swift in Sources */,
+				F0CF5E391BD27937000A2007 /* FloatLabelTextView.swift in Sources */,
 				F0CF5E2E1BD16CF1000A2007 /* Utilities.swift in Sources */,
+				F0CF5E341BD242F1000A2007 /* LogInController.swift in Sources */,
+				F0CF5E381BD27937000A2007 /* FloatLabelTextField.swift in Sources */,
 				F0CF5E2B1BD16B1F000A2007 /* ViewController.swift in Sources */,
 				F0CF5DFC1BD153C1000A2007 /* AppDelegate.swift in Sources */,
 			);
