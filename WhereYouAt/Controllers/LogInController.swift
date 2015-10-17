@@ -14,6 +14,7 @@ class LogInController: UIViewController {
     var yPos : CGFloat?
     var userName : FloatLabelTextField?
     var passWord : FloatLabelTextField?
+    var activityIndicator: UIActivityIndicatorView!
 
 
     override func viewDidLoad() {
@@ -88,6 +89,15 @@ class LogInController: UIViewController {
         logInButton.addTarget(self, action:Selector("loginTapped"), forControlEvents: UIControlEvents.TouchUpInside)
         self.view.addSubview(logInButton)
         yPos = yPos! + self.view.frame.size.height * 0.18 * Utilities.heightRatioTobaseDevice()
+        
+        //Activity Indicator Code
+        
+        self.activityIndicator = UIActivityIndicatorView(frame: CGRect(x: 0, y: 0, width: 50, height: 50))
+        activityIndicator.center = self.view.center
+        self.activityIndicator.color = UIColor.blackColor()
+        self.activityIndicator.hidesWhenStopped = false
+        self.activityIndicator.hidden = true
+        self.view.addSubview(self.activityIndicator)
     }
     
     //MARK: UI Elements
@@ -100,6 +110,11 @@ class LogInController: UIViewController {
     }
     
     func loginTapped(){
+        //Doing the Activity Indicator Action
+        self.activityIndicator.startAnimating()
+        UIApplication.sharedApplication().beginIgnoringInteractionEvents()
+        self.activityIndicator.hidden = false
+        
         print("Login tapped")
         let user_username:String = (userName?.text)!
         let user_password:String = (passWord?.text)!
@@ -110,6 +125,11 @@ class LogInController: UIViewController {
         WYA.User.login(params, headers: headers){ (response) -> Void in
             let success = response["success"] as! Bool
             dispatch_async(dispatch_get_main_queue()) {
+                
+                self.activityIndicator.stopAnimating()
+                UIApplication.sharedApplication().endIgnoringInteractionEvents()
+                self.activityIndicator.hidden = true
+                
                 if (success){
                     let userTest: NSDictionary? = response["user"] as! NSDictionary!
                     if userTest != nil {
@@ -122,6 +142,12 @@ class LogInController: UIViewController {
                             }
                         }
                     }
+                    
+                    //Move to the Profile :)
+                    let vc = ViewController()
+                    vc.initWithProfileData(response)
+                    self.navigationController?.pushViewController(vc, animated: true)
+                    
                 } else {
                     var message = WYA.User.Result["message"] as? String
                     if message == nil {

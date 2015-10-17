@@ -15,17 +15,22 @@ class ViewController: UIViewController {
     var profileContent:UIView?
     var name:UILabel?
     var desc:UILabel?
+    var userData:NSDictionary?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        loadInitialSetup()
-        loadControllerData()
         // Do any additional setup after loading the view, typically from a nib.
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func initWithProfileData(profileData:NSDictionary){
+        userData = profileData
+        loadInitialSetup()
+        loadControllerData()
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -109,36 +114,38 @@ class ViewController: UIViewController {
         // call the API using the SDK
         // a good endpoint would be WYA.User.getCurrentUser(params)
         //
-        let desiredAPIResults: NSDictionary = [
-            "zulutime": "2015-04-23T03:28:13Z",
-            "user": [
-                "_id": "546ae4865c3eaaf4a68b4569",
-                "user_username": "crwirz",
-                "user_email_addresses": [
-                    "crwirz@gmail.com"
-                ],
-                "user_first_name": "Christopher",
-                "user_last_name": "Wirz",
-                "user_last_update": [
-                    "sec": 1429759694,
-                    "usec": 26000
-                ],
-                "user_main_image_url": "https://s3.amazonaws.com/whereyouat-images/8a4dde99b66a0bcd1ff8df0048951fef2087a254ae9c9a39a51fd38bb85583b91b27336b109de028486e62e67cc8b1b27495725ebaabdf2f441afb61080e4935.png",
-                "user_description": "Christopher is a full stack developer and systems engineer.",
-                "user_cover_image_url": "https://s3.amazonaws.com/whereyouat-images/4e6fad7b19fd53178ac326b8a36b937acc4156bc3328d6df63cfd3927498a6090d4228232301a8be43fc6bf2aa23ba7d52fba460978dd1d99b89e4a307252c4e.jpg",
-                "user_last_update_zulu": "2015-04-22T20:28:14Z",
-                "user_last_update_utc": "2015-04-22 20:28:14",
-                "user_last_update_standard": "04/22/2015",
-                "user_last_update_ago": "0 seconds ago",
-                "user_last_update_seconds": 1429759694.26,
-                "current_user_can_modify": true,
-                "current_user_can_content_edit": true,
-                "user_display_name": "Christopher Wirz",
-                "user_is_current_user": true
-            ],
-            "message": "crwirz was updated in the database.",
-            "success": true
-        ]
+//        let desiredAPIResults: NSDictionary = [
+//            "zulutime": "2015-04-23T03:28:13Z",
+//            "user": [
+//                "_id": "546ae4865c3eaaf4a68b4569",
+//                "user_username": "crwirz",
+//                "user_email_addresses": [
+//                    "crwirz@gmail.com"
+//                ],
+//                "user_first_name": "Christopher",
+//                "user_last_name": "Wirz",
+//                "user_last_update": [
+//                    "sec": 1429759694,
+//                    "usec": 26000
+//                ],
+//                "user_main_image_url": "https://s3.amazonaws.com/whereyouat-images/8a4dde99b66a0bcd1ff8df0048951fef2087a254ae9c9a39a51fd38bb85583b91b27336b109de028486e62e67cc8b1b27495725ebaabdf2f441afb61080e4935.png",
+//                "user_description": "Christopher is a full stack developer and systems engineer.",
+//                "user_cover_image_url": "https://s3.amazonaws.com/whereyouat-images/4e6fad7b19fd53178ac326b8a36b937acc4156bc3328d6df63cfd3927498a6090d4228232301a8be43fc6bf2aa23ba7d52fba460978dd1d99b89e4a307252c4e.jpg",
+//                "user_last_update_zulu": "2015-04-22T20:28:14Z",
+//                "user_last_update_utc": "2015-04-22 20:28:14",
+//                "user_last_update_standard": "04/22/2015",
+//                "user_last_update_ago": "0 seconds ago",
+//                "user_last_update_seconds": 1429759694.26,
+//                "current_user_can_modify": true,
+//                "current_user_can_content_edit": true,
+//                "user_display_name": "Christopher Wirz",
+//                "user_is_current_user": true
+//            ],
+//            "message": "crwirz was updated in the database.",
+//            "success": true
+//        ]
+        
+        let desiredAPIResults : NSDictionary = userData!
         
         let success: Bool = desiredAPIResults["success"] as! Bool!
         if (success) { // will enter the loop only if success evaluates to boolean true
